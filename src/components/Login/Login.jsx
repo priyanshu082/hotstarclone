@@ -11,8 +11,8 @@ export const Login = () => {
         </div>
 
 
-        <button className='bg-blue-600 h-[50px] tablet:h-[70px] w-full  laptop:w-[740px] rounded-md font-poppins font-extrabold  text-[12px] mobile:text-[15px] tablet:text-[20px] laptop:text-[20px] tracking-wider ' >
-          GET ALL THERE
+        <button className='bg-blue-600 h-[50px] tablet:h-[70px] w-full  laptop:w-[740px] rounded-md font-poppins font-semibold mobile:font-bold tablet:font-extrabold  text-[12px] mobile:text-[15px] tablet:text-[20px] laptop:text-[20px] tracking-wider hover:bg-blue-500' >
+          GET &nbsp; ALL &nbsp; THERE
         </button>
         <div className='flex flex-col justify-center items-center text-[13px] tracking-widest'>
           <h5>
