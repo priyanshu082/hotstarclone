@@ -1,12 +1,20 @@
-import './App.css'
+import {  Route, BrowserRouter, Routes } from "react-router-dom";
+import Login from './components/Login/Login'
 
+import './App.css'
 
 function App() {
 
   return (
-    <div className='bg-pink-600'>
-      Priyanshu singh 
-    </div>
+    
+   <div className="bg-primary text-white">
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Login/>}/>
+      </Routes>
+      </BrowserRouter>
+   </div>
+    
   )
 }
 
