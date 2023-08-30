@@ -7,11 +7,23 @@ import original from "./original-icon.svg"
 import series from "./series-icon.svg"
 import search from "./search-icon.svg"
 import watchlist from "./watchlist-icon.svg"
-import { textVariant,fadeIn,zoomIn,slideIn, } from '../../utils/motion'
+import { slideIn, } from '../../utils/motion'
+import { auth, provider  } from '../../firebase'
+
 
 
 
 export const Header = () => {
+  
+  const handleAuth = () => {
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        console.log('Authentication successful:', result.user);
+      })
+      .catch((error) => {
+        console.error('Authentication error:', error);
+      });
+  };
 
   const menu=[
     {name:'HOME',icon:home},
@@ -23,6 +35,8 @@ export const Header = () => {
   ]
 
   const [toggle, setToggle] = useState(false);
+
+
   return (
 
     <motion.div
@@ -36,10 +50,10 @@ export const Header = () => {
       <div className='pl-[20px] flex flex-row'>
         {menu.map((item,index)=>(
              <a key={index} href='/' className='flex flex-row ml-[30px] justify-center items-center hover:scale-110 hover:border-b-2 hover:border-blue-300 pt-[1px] transition-all duration-100 hover:text-blue-300 relative '>
-               <div className='hover:cursor-pointer mr-[3px]'>
+               <div className=' mr-[3px]'>
               <img src={item.icon} alt={item.name} height={23} width={23}/>
               </div> 
-              <div className='pt-[3px] hover:cursor-pointer'>{item.name}</div>
+              <div className='pt-[3px] '>{item.name}</div>
             </a>
 ))} 
       </div>
@@ -48,7 +62,9 @@ export const Header = () => {
 
        whileHover={{ scale: 1.1 }}
        whileTap={{ scale: 0.9 }}
-      className="border-[1px] border-solid border-white flex justify-center items-center p-[7px] px-[22px] rounded-md font-poppins text-[20px] tracking-wider hover:cursor-pointer hover:bg-white hover:text-blue-500 transition-all ease-in  ">
+      className="border-[1px] border-solid border-white flex justify-center items-center p-[7px] px-[22px] rounded-md font-poppins text-[20px] tracking-wider hover:cursor-pointer hover:bg-white hover:text-blue-500 transition-all ease-in  "
+      onClick={handleAuth}
+      >
         Login
       </motion.div>
     </motion.div>
